@@ -1,0 +1,36 @@
+.form {
+    padding: 2rem;
+    margin: 2rem;
+    justify-content: space-around;
+    align-items: center;
+    background-color: rgb(220, 245, 250);
+    border-radius: 25px;
+}
+
+.form input {
+    margin: 2rem;
+    width: 60%;
+    padding: 20px;
+    font-size: 20px;
+    margin: 4px 2px;
+    border-radius: 12px;
+    border: none;
+}
+
+.form button {
+    border: none;
+    background-color:rgb(231, 228, 228); 
+    width: 20%;
+    padding: 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    margin: 4px 2px;
+    border-radius: 12px;
+}
+
+.form button:hover,
+.form button:active {
+    background-color: rgb(211, 206, 206);
+  }
