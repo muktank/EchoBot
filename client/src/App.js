@@ -5,13 +5,13 @@ import './App.css';
 
 const App = () => {
   const [data, setData] = useState({});
+  const [originalMessage, setOriginalMessage] = useState();
 
   const getData = async(message) => {
     const payload = {
       "message": message
     };
 
-    console.log("this is payload : " + payload.message);
     const response = await fetch("http://localhost:5000/echo", {
       method: "POST",
       body: JSON.stringify(payload),
@@ -28,6 +28,7 @@ const App = () => {
     if(!message) {
       setData({err: "Please enter a message"});
     } else {
+      setOriginalMessage(message);
       getData(message);
     }
   };
@@ -35,8 +36,9 @@ const App = () => {
   return (
     <Fragment>
       <header className="header"><h1>EchoBot</h1></header>
-      <main>      
-        {data.echo && <div className="message">{data.echo}</div>}
+      <main>   
+        {originalMessage && !data.err && <div className="message">{originalMessage}</div>}   
+        {data.echo && <div className="echo">{data.echo}</div>}
         {data.err && <div className="error">{data.err}</div>}
         <Form onSubmit={onSubmit}></Form>
       </main>
